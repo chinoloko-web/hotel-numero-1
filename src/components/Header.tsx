@@ -1,0 +1,65 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+const links = [
+  { label: "Habitaciones", href: "#habitaciones" },
+  { label: "Experiencias", href: "#experiencias" },
+  { label: "Galería", href: "#galeria" },
+];
+
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <header
+      ref={headerRef}
+      className="fixed top-0 left-0 w-full z-50 transition-all duration-300 px-8 md:px-12 flex items-center"
+      style={{
+        height: scrolled ? "64px" : "96px",
+        backgroundColor: scrolled ? "rgba(250,248,245,0.92)" : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(46,74,61,0.06)" : "1px solid transparent",
+      }}
+    >
+      <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
+        <span
+          className="font-heading tracking-[0.08em] text-foreground transition-all duration-300"
+          style={{ fontSize: scrolled ? "1.25rem" : "1.5rem" }}
+        >
+          Paraíso Celeste
+        </span>
+
+        <nav className="hidden md:flex items-center gap-10">
+          {links.map((l) => (
+            <button
+              key={l.href}
+              onClick={() => scrollTo(l.href.slice(1))}
+              className="text-sm tracking-[0.15em] uppercase text-foreground/70 hover:text-foreground transition-colors font-body font-medium"
+            >
+              {l.label}
+            </button>
+          ))}
+        </nav>
+
+        <button
+          onClick={() => scrollTo("reservar")}
+          className="bg-accent text-background px-6 py-2.5 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-accent-light transition-colors duration-500"
+        >
+          Reservar
+        </button>
+      </div>
+    </header>
+  );
+}
