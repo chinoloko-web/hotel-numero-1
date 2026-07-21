@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Paraíso Celeste | Luxury Boutique Hotel Tulum",
     description: "Donde el tiempo se mueve más lento. Un refugio boutique de lujo en la Riviera Maya.",
-    images: ["https://images.unsplash.com/photo-1571896349842-5c18a4706d8d?w=1200&q=80"],
+    images: ["https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?w=1200&q=80"],
   },
 };
 

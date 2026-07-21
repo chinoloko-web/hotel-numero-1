@@ -48,7 +48,7 @@ export default function Hero() {
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1571896349842-5c18a4706d8d?auto=format&fit=crop&w=1920&q=85"
+          src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1920&q=85"
           alt="Paraíso Celeste"
           className="w-full h-full object-cover"
           style={{ filter: "brightness(0.7)" }}

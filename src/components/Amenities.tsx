@@ -3,10 +3,10 @@
 import { useEffect, useRef } from "react";
 
 const items = [
-  { title: "Spa", desc: "Rituales ancestrales.", img: "https://images.unsplash.com/photo-1600334089648-b79b4febe3f6?auto=format&fit=crop&w=600&q=85", span: "md:col-span-1 md:row-span-2" },
-  { title: "Piscina Infinita", desc: "Agua y horizonte.", img: "https://images.unsplash.com/photo-1575424909262-8abf7f16a0f1?auto=format&fit=crop&w=800&q=85", span: "md:col-span-2 md:row-span-1" },
+  { title: "Spa", desc: "Rituales ancestrales.", img: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=85", span: "md:col-span-1 md:row-span-2" },
+  { title: "Piscina Infinita", desc: "Agua y horizonte.", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=85", span: "md:col-span-2 md:row-span-1" },
   { title: "Restaurante", desc: "Cocina de autor.", img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=85", span: "md:col-span-1 md:row-span-1" },
-  { title: "Yoga", desc: "Frente al océano.", img: "https://images.unsplash.com/photo-1545389336-c090e96e5b62?auto=format&fit=crop&w=600&q=85", span: "md:col-span-1 md:row-span-1" },
+  { title: "Yoga", desc: "Frente al océano.", img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=85", span: "md:col-span-1 md:row-span-1" },
   { title: "Playa Privada", desc: "Arena blanca, silencio total.", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=85", span: "md:col-span-2 md:row-span-1" },
   { title: "Tours", desc: "Cenotes y ruinas.", img: "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?auto=format&fit=crop&w=600&q=85", span: "md:col-span-1 md:row-span-1" },
 ];
