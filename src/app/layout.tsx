@@ -3,12 +3,13 @@ import { playfair, inter } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://paraisoceleste.com"),
   title: "Paraíso Celeste | Luxury Boutique Hotel Tulum",
   description: "Donde el tiempo se mueve más lento. Un refugio boutique de lujo en la Riviera Maya.",
   openGraph: {
     title: "Paraíso Celeste | Luxury Boutique Hotel Tulum",
     description: "Donde el tiempo se mueve más lento. Un refugio boutique de lujo en la Riviera Maya.",
-    images: ["https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?w=1200&q=80"],
+    images: ["/images/bungalow-colibri/30PARAISO CELESTE.jpg"],
   },
 };
 

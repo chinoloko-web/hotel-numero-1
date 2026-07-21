@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Introduction from "@/components/Introduction";
-import Rooms from "@/components/Rooms";
+import Bungalows from "@/components/Rooms";
 import Amenities from "@/components/Amenities";
 import Experiences from "@/components/Experiences";
 import Gallery from "@/components/Gallery";
@@ -22,7 +22,7 @@ export default function Home() {
       <main>
         <Hero />
         <Introduction />
-        <Rooms />
+        <Bungalows />
         <Amenities />
         <Experiences />
         <Gallery />
