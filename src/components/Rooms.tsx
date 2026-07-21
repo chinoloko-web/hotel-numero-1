@@ -45,6 +45,33 @@ const bungalows: Bungalow[] = [
     ],
   },
   {
+    id: "bungalow-tucan",
+    name: "Bungalow Tucán",
+    desc: "Rodeado de selva, con vistas increíbles.",
+    long: "Un espacio diseñado para conectar con la naturaleza. Amplio, iluminado y con todos los detalles que hacen de tu estancia una experiencia única.",
+    price: "$890",
+    capacity: "2 adultos",
+    image: "/images/bungalow-tucan/IMG_7370.jpg",
+    gallery: [
+      "/images/bungalow-tucan/IMG_8586.jpg",
+      "/images/bungalow-tucan/IMG_8587.jpg",
+      "/images/bungalow-tucan/IMG_8589.jpg",
+      "/images/bungalow-tucan/IMG_8590.jpg",
+      "/images/bungalow-tucan/IMG_8591.jpg",
+      "/images/bungalow-tucan/IMG_8592.jpg",
+    ],
+    amenities: [
+      { icon: "🌿", label: "Terraza con hamaca" },
+      { icon: "🚿", label: "Ducha al aire libre" },
+      { icon: "🌺", label: "Jardín privado" },
+    ],
+    services: [
+      "Concierge personal",
+      "Desayuno incluido",
+      "Yoga al amanecer",
+    ],
+  },
+  {
     id: "bungalow-marlin",
     name: "Bungalow Marlín",
     desc: "Frente al mar, con brisa permanente.",
