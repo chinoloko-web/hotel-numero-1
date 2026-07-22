@@ -110,21 +110,29 @@ function PageContent() {
         </div>
       </section>
 
-      <section className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
-        <img src="/images/vistas/IMG_4014.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ filter: "brightness(0.5)" }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/60" />
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-          <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
-            ¿Listo para vivir<br />la experiencia?
-          </h2>
-          <a
-            href="https://www.simplebooking.it/ibe2/hotel/11431?lang=ES&cur=USD"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white text-foreground px-12 py-4 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-white/90 transition-colors"
-          >
-            Reserva ahora
-          </a>
+      {/* Booking Widget */}
+      <section id="reservar" className="w-full py-20 md:py-28 px-6 md:px-12 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-12 text-center">
+            <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-3">Reservas</p>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-4">
+              ¿Listo para vivir la experiencia?
+            </h2>
+            <p className="font-body text-foreground/60 max-w-md mx-auto">
+              Selecciona tus fechas y reserva tu bungalow.
+            </p>
+          </div>
+          <div className="w-full h-[600px] md:h-[700px] overflow-hidden border border-secondary">
+            <iframe
+              src="https://www.simplebooking.it/ibe2/hotel/11431?lang=ES&cur=USD"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              title="SimpleBooking"
+            />
+          </div>
         </div>
       </section>
     </main>
