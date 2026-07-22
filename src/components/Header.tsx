@@ -18,6 +18,19 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) { el.scrollIntoView({ behavior: "smooth" }); return true; }
+    return false;
+  };
+
+  const handleReservar = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!scrollTo("reservar")) {
+      window.location.href = "/#reservar";
+    }
+  };
+
   const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("/#") && window.location.pathname === "/") {
       e.preventDefault();
@@ -59,14 +72,12 @@ export default function Header() {
           ))}
         </nav>
 
-        <a
-          href="https://www.simplebooking.it/ibe2/hotel/11431?lang=ES&cur=USD"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={handleReservar}
           className="bg-accent text-background px-6 py-2.5 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-accent-light transition-colors duration-500"
         >
           Reservar
-        </a>
+        </button>
       </div>
     </header>
   );

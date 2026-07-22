@@ -40,7 +40,9 @@ export default function Hero() {
   }, []);
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const el = document.getElementById(id);
+    if (el) { el.scrollIntoView({ behavior: "smooth" }); return true; }
+    return false;
   };
 
   return (
@@ -72,14 +74,12 @@ export default function Hero() {
           More than a lodge… A haven of natural peace
         </p>
         <div ref={ctaRef} className="flex flex-col md:flex-row items-center gap-4">
-          <a
-            href="https://www.simplebooking.it/ibe2/hotel/11431?lang=ES&cur=USD"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => scrollTo("reservar")}
             className="bg-white text-foreground px-10 py-3.5 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-white/90 transition-colors"
           >
             Reservar Ahora
-          </a>
+          </button>
           <a
             href="/bungalows"
             className="text-white/80 text-sm tracking-[0.15em] uppercase font-body font-medium hover:text-white transition-colors"
