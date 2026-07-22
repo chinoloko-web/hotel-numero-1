@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 
 const links = [
   { label: "Bungalows", href: "/bungalows" },
-  { label: "Galería", href: "#galeria" },
-  { label: "Ubicación", href: "#ubicacion" },
+  { label: "Galería", href: "/#galeria" },
+  { label: "Ubicación", href: "/#ubicacion" },
 ];
 
 export default function Header() {
@@ -18,8 +18,12 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("/#") && window.location.pathname === "/") {
+      e.preventDefault();
+      const id = href.slice(2);
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -44,23 +48,14 @@ export default function Header() {
 
         <nav className="hidden md:flex items-center gap-10">
           {links.map((l) => (
-            l.href.startsWith("/") ? (
-              <a
-                key={l.href}
-                href={l.href}
-                className="text-sm tracking-[0.15em] uppercase text-foreground/70 hover:text-foreground transition-colors font-body font-medium"
-              >
-                {l.label}
-              </a>
-            ) : (
-              <button
-                key={l.href}
-                onClick={() => scrollTo(l.href.slice(1))}
-                className="text-sm tracking-[0.15em] uppercase text-foreground/70 hover:text-foreground transition-colors font-body font-medium"
-              >
-                {l.label}
-              </button>
-            )
+            <a
+              key={l.href}
+              href={l.href}
+              onClick={(e) => handleNav(e, l.href)}
+              className="text-sm tracking-[0.15em] uppercase text-foreground/70 hover:text-foreground transition-colors font-body font-medium"
+            >
+              {l.label}
+            </a>
           ))}
         </nav>
 
