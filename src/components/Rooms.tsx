@@ -24,7 +24,7 @@ const bungalows: Bungalow[] = [
     long: "Sumérgete en la tranquilidad de este bungalow privado. Rodeado de vegetación exuberante, con todos los detalles cuidados para que tu estancia sea inolvidable.",
     price: "$135.19",
     capacity: "2 adultos",
-    image: "/images/bungalow-colibri/_MG_3443.JPG",
+    image: "/images/bungalow-colibri/IMG_4090_h.jpg",
     gallery: [
       "/images/bungalow-colibri/_MG_3442.JPG",
       "/images/bungalow-colibri/_MG_3443.JPG",
