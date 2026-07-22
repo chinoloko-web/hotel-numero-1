@@ -1,11 +1,17 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Hero() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollY } = useScroll();
+  const imageParallax = useTransform(scrollY, [0, 600], [0, 200]);
+  const overlayParallax = useTransform(scrollY, [0, 600], [0, -80]);
 
   useEffect(() => {
     const title = titleRef.current;
@@ -39,28 +45,30 @@ export default function Hero() {
     });
   }, []);
 
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) { el.scrollIntoView({ behavior: "smooth" }); return true; }
-    return false;
-  };
-
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-black">
-      <div className="absolute inset-0">
+    <section ref={sectionRef} className="relative h-screen w-full overflow-hidden bg-black">
+      <motion.div className="absolute inset-0" style={{ y: imageParallax }}>
         <img
           src="/images/bungalow-colibri/IMG_4090.jpg?v=1"
           alt="Paraíso Celeste"
-          className="w-full h-full object-cover"
+          className="w-full h-[120%] object-cover"
           style={{ filter: "brightness(0.7)" }}
         />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/30" />
+      </motion.div>
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/30"
+        style={{ y: overlayParallax }}
+      />
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-        <p className="text-white/50 text-xs tracking-[0.25em] uppercase font-body font-medium mb-6">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-white/50 text-xs tracking-[0.25em] uppercase font-body font-medium mb-6"
+        >
           Bijagua, Costa Rica
-        </p>
+        </motion.p>
         <h1
           ref={titleRef}
           className="font-heading text-4xl md:text-6xl lg:text-7xl text-white tracking-[0.04em] leading-none mb-4"
@@ -73,7 +81,13 @@ export default function Hero() {
         >
           More than a lodge… A haven of natural peace
         </p>
-        <div ref={ctaRef} className="flex flex-col md:flex-row items-center gap-4">
+        <motion.div
+          ref={ctaRef}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1 }}
+          className="flex flex-col md:flex-row items-center gap-4"
+        >
           <a
             href="https://www.simplebooking.it/ibe2/hotel/11431?lang=ES&cur=USD"
             target="_blank"
@@ -88,12 +102,17 @@ export default function Hero() {
           >
             Ver Bungalows
           </a>
-        </div>
+        </motion.div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 z-10 flex justify-center pb-8">
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 z-10 flex justify-center pb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+      >
         <a href="/bungalows" className="text-white/40 text-2xl animate-bounce">↓</a>
-      </div>
+      </motion.div>
     </section>
   );
 }

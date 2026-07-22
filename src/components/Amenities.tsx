@@ -23,43 +23,81 @@ const gallery = [
   "/images/vistas/IMG_8414.jpg",
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.06 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const },
+  },
+};
+
 export default function Amenities() {
   const [lightbox, setLightbox] = useState<number | null>(null);
 
   return (
     <section id="galeria" className="w-full py-20 md:py-28 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-10"
+        >
           <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-3">Amenidades</p>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight">
             Todo lo que necesitas
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-12">
-          {items.map((item) => (
-            <div key={item.title} className="bg-secondary/30 p-4 md:p-5 text-center">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-12"
+        >
+          {items.map((item, i) => (
+            <motion.div
+              key={item.title}
+              variants={itemVariants}
+              whileHover={{ y: -4, borderColor: "#2E4A3D" }}
+              className="bg-secondary/30 p-4 md:p-5 text-center border border-transparent transition-colors duration-300"
+            >
               <h3 className="font-heading text-sm md:text-base text-foreground mb-1">{item.title}</h3>
               <p className="text-[10px] md:text-xs text-foreground/50 font-body">{item.desc}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 space-y-3 md:space-y-4">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 space-y-3 md:space-y-4"
+        >
           {gallery.map((src, i) => (
             <motion.button
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
               onClick={() => setLightbox(i)}
               className="break-inside-avoid overflow-hidden group w-full text-left"
             >
               <img src={src} alt="" className="w-full object-cover transition-transform duration-[1.2s] group-hover:scale-105" loading="lazy" />
             </motion.button>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <AnimatePresence>

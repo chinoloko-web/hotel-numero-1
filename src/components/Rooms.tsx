@@ -16,6 +16,37 @@ interface Bungalow {
   services: string[];
 }
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 60, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const },
+  },
+};
+
+const modalVariants = {
+  hidden: { scale: 0.9, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as const },
+  },
+  exit: {
+    scale: 0.9,
+    opacity: 0,
+    transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] as const },
+  },
+};
+
 const bungalows: Bungalow[] = [
   {
     id: "bungalow-colibri",
@@ -182,30 +213,45 @@ export default function Bungalows() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {bungalows.map((b, i) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+        >
+          {bungalows.map((b) => (
             <motion.button
               key={b.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              variants={cardVariants}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => openModal(b)}
               className="relative h-[40vh] md:h-[50vh] overflow-hidden group text-left w-full"
             >
-              <img src={b.image} alt={b.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105" />
+              <motion.img
+                src={b.image}
+                alt={b.name}
+                className="absolute inset-0 w-full h-full object-cover"
+                whileHover={{ scale: 1.08 }}
+                transition={{ duration: 1.2 }}
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
                 <p className="text-white/60 text-[10px] tracking-[0.2em] uppercase font-body">Desde {b.price} / noche</p>
                 <h3 className="font-heading text-xl md:text-2xl text-white mt-1">{b.name}</h3>
                 <p className="text-white/60 text-sm mt-1 font-body">{b.desc}</p>
               </div>
-              <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white text-[10px] tracking-[0.15em] uppercase font-body px-3 py-1.5 border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity">
+              <motion.div
+                initial={{ opacity: 0, x: 10 }}
+                whileHover={{ opacity: 1, x: 0 }}
+                className="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white text-[10px] tracking-[0.15em] uppercase font-body px-3 py-1.5 border border-white/20"
+              >
                 Ver más
-              </div>
+              </motion.div>
             </motion.button>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <AnimatePresence>
@@ -218,10 +264,10 @@ export default function Bungalows() {
             onClick={() => setSelected(null)}
           >
             <motion.div
-              initial={{ scale: 0.92, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.92, opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+              variants={modalVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
               onClick={(e) => e.stopPropagation()}
               className="bg-background w-full max-w-4xl max-h-[90vh] overflow-y-auto"
             >
