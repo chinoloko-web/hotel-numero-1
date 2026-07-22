@@ -124,42 +124,7 @@ const bungalows: Bungalow[] = [
       "Excursiones exclusivas",
     ],
   },
-  {
-    id: "bungalow-marlin",
-    name: "Bungalow Marlín",
-    desc: "Frente al mar, con brisa permanente.",
-    long: "El sonido del mar te acompañará día y noche. Un bungalow diseñado para quienes buscan la experiencia costera definitiva.",
-    price: "$1,100",
-    capacity: "2 adultos",
-    image: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=85",
-    gallery: [
-      "https://images.unsplash.com/photo-1590490359683-658d3d23f972?auto=format&fit=crop&w=800&q=85",
-      "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=800&q=85",
-    ],
-    amenities: [
-      { icon: "🌊", label: "Vista al mar" },
-      { icon: "🍸", label: "Bar privado" },
-    ],
-    services: ["Desayuno en habitación", "Transporte privado"],
-  },
-  {
-    id: "bungalow-jaguar",
-    name: "Bungalow Jaguar",
-    desc: "La máxima privacidad en la selva.",
-    long: "Rodeado de selva virgen, este bungalow ofrece la experiencia más exclusiva del resort. Piscina privada y terraza panorámica.",
-    price: "$1,600",
-    capacity: "4 adultos",
-    image: "https://images.unsplash.com/photo-1590490359683-658d3d23f972?auto=format&fit=crop&w=1200&q=85",
-    gallery: [
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=85",
-      "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=85",
-    ],
-    amenities: [
-      { icon: "🏊", label: "Piscina privada" },
-      { icon: "🔥", label: "Fogata" },
-    ],
-    services: ["Chef privado", "Excursiones personalizadas"],
-  },
+
 ];
 
 export default function Bungalows() {
