@@ -36,7 +36,7 @@ function PageContent() {
 
   return (
     <main>
-      <section ref={heroRef} className="relative h-screen w-full overflow-hidden bg-background">
+      <section ref={heroRef} className="relative h-screen w-full overflow-hidden bg-black">
         <div className="absolute inset-0">
           <img
             src="/images/vistas/IMG_5158.jpg"

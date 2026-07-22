@@ -46,7 +46,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden bg-black">
       <div className="absolute inset-0">
         <img
           src="/images/bungalow-colibri/IMG_4090.jpg?v=1"
