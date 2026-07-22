@@ -44,7 +44,7 @@ export default function Location() {
             <div className="absolute -inset-1 bg-accent/5 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative h-[30vh] md:h-[40vh] overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.000000!2d-85.083333!3d10.733333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e78f8f8f8f8f%3A0x8f8f8f8f8f8f8f8f!2sBijagua%20de%20Upala!5e0!3m2!1ses!2scr!4v1"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5000!2d-85.0298131!3d10.7197794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBungalows+Para%C3%ADso+Celeste!5e1!3m2!1ses!2scr!4v1"
                 width="100%" height="100%" style={{ border: 0, filter: "grayscale(0.8) sepia(0.2)" }}
                 allowFullScreen loading="lazy" title="Mapa Bijagua"
               />
@@ -79,7 +79,7 @@ export default function Location() {
             <motion.a
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              href="https://maps.google.com/?q=Bijagua+de+Upala+Alajuela+Costa+Rica"
+              href="https://www.google.com/maps/dir/?api=1&destination=10.7197794,-85.0298131"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-accent text-background px-8 py-3 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-accent-light transition-colors"
