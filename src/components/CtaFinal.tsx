@@ -4,7 +4,7 @@ export default function CtaFinal() {
   return (
     <section id="reservar" className="relative w-full h-[80vh] md:h-screen overflow-hidden">
       <img
-        src="/images/bungalow-colibri/IMG_4090.jpg"
+        src="/images/bungalow-colibri/IMG_4090.jpg?v=1"
         alt="Atardecer"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ filter: "brightness(0.6)" }}
