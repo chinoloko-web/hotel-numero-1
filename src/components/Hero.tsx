@@ -55,31 +55,36 @@ export default function Hero() {
           src="/images/bungalow-colibri/IMG_4090.jpg?v=1"
           alt="Paraíso Celeste"
           className="w-full h-[120%] object-cover"
-          style={{ filter: "brightness(0.7)" }}
+          style={{ filter: "brightness(0.65)" }}
         />
       </motion.div>
       <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/30"
+        className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/40"
         style={{ y: overlayParallax }}
       />
 
+      <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-transparent to-transparent pointer-events-none" />
+
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-white/50 text-xs tracking-[0.25em] uppercase font-body font-medium mb-6"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-6"
         >
-          {dict.hero.location}
-        </motion.p>
+          <span className="inline-block w-8 h-px bg-white/20 align-middle mr-3" />
+          <span className="text-white/50 text-xs tracking-[0.25em] uppercase font-body font-medium">{dict.hero.location}</span>
+          <span className="inline-block w-8 h-px bg-white/20 align-middle ml-3" />
+        </motion.div>
+
         <h1
           ref={titleRef}
-          className="font-heading text-4xl md:text-6xl lg:text-7xl text-white tracking-[0.04em] leading-none mb-4"
+          className="font-heading text-4xl md:text-6xl lg:text-7xl text-white tracking-[0.04em] leading-none mb-6"
           dangerouslySetInnerHTML={{ __html: dict.hero.title }}
         />
         <p
           ref={subtitleRef}
-          className="font-body text-base md:text-lg text-white/70 tracking-[0.2em] uppercase max-w-lg mx-auto mb-10"
+          className="font-body text-base md:text-lg text-white/60 tracking-[0.2em] uppercase max-w-lg mx-auto mb-12"
         >
           {dict.hero.subtitle}
         </p>
@@ -94,13 +99,13 @@ export default function Hero() {
             href={`https://www.simplebooking.it/ibe2/hotel/11431?lang=${locale === "en" ? "EN" : "ES"}&cur=USD`}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white text-foreground px-10 py-3.5 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-white/90 transition-colors"
+            className="bg-white text-foreground px-10 py-3.5 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-white/90 transition-colors shadow-lg shadow-black/20"
           >
             {dict.hero.cta}
           </a>
           <a
             href={`/${locale}/bungalows`}
-            className="text-white/80 text-sm tracking-[0.15em] uppercase font-body font-medium hover:text-white transition-colors"
+            className="text-white/80 text-sm tracking-[0.15em] uppercase font-body font-medium hover:text-white transition-colors border border-white/20 px-10 py-3.5 hover:border-white/40"
           >
             {dict.hero.ctaBungalows}
           </a>
@@ -108,12 +113,15 @@ export default function Hero() {
       </div>
 
       <motion.div
-        className="absolute bottom-0 left-0 right-0 z-10 flex justify-center pb-8"
+        className="absolute bottom-0 left-0 right-0 z-10 flex justify-center pb-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
       >
-        <a href={`/${locale}/bungalows`} className="text-white/40 text-2xl animate-bounce">↓</a>
+        <div className="flex flex-col items-center gap-2 text-white/30">
+          <span className="text-[9px] tracking-[0.25em] uppercase font-body font-medium">Scroll</span>
+          <div className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent" />
+        </div>
       </motion.div>
     </section>
   );

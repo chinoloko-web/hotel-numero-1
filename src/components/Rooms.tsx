@@ -155,13 +155,18 @@ export default function Rooms() {
   const binfo = (b: Bungalow) => (bd as any)[b.id] || { name: b.id, desc: "", long: "", amenities: [], services: [] };
 
   return (
-    <section id="bungalows" className="w-full py-20 md:py-28 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-10">
+    <section id="bungalows" className="relative w-full py-24 md:py-32 px-6 md:px-12 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/3 -left-32 w-96 h-96 bg-accent/[0.02] rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 -right-32 w-96 h-96 bg-accent/[0.02] rounded-full blur-3xl" />
+      </div>
+      <div className="max-w-7xl mx-auto relative">
+        <div className="mb-12">
           <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-3">{bd.sectionBadge}</p>
           <h2 ref={headingRef} className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight">
             {bd.sectionTitle}
           </h2>
+          <div className="w-12 h-0.5 bg-accent/20 mt-4" />
         </div>
 
         <motion.div
@@ -169,7 +174,7 @@ export default function Rooms() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-7"
         >
           {bungalows.map((b) => {
             const info = binfo(b);
@@ -177,10 +182,10 @@ export default function Rooms() {
               <motion.button
                 key={b.id}
                 variants={cardVariants}
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.015 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => openModal(b)}
-                className="relative h-[40vh] md:h-[50vh] overflow-hidden group text-left w-full"
+                className="relative h-[40vh] md:h-[50vh] overflow-hidden group text-left w-full border border-secondary/50 hover:border-accent/20 transition-colors duration-500"
               >
                 <motion.img
                   src={b.image}
@@ -189,16 +194,17 @@ export default function Rooms() {
                   whileHover={{ scale: 1.08 }}
                   transition={{ duration: 1.2 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/5 transition-colors duration-700" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <p className="text-white/60 text-[10px] tracking-[0.2em] uppercase font-body">{bd.from} {b.price}{bd.perNight}</p>
+                  <p className="text-white/50 text-[10px] tracking-[0.2em] uppercase font-body mb-1">{bd.from} {b.price}{bd.perNight}</p>
                   <h3 className="font-heading text-xl md:text-2xl text-white mt-1">{info.name}</h3>
-                  <p className="text-white/60 text-sm mt-1 font-body">{info.desc}</p>
+                  <p className="text-white/50 text-sm mt-1 font-body">{info.desc}</p>
                 </div>
                 <motion.div
                   initial={{ opacity: 0, x: 10 }}
                   whileHover={{ opacity: 1, x: 0 }}
-                  className="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white text-[10px] tracking-[0.15em] uppercase font-body px-3 py-1.5 border border-white/20"
+                  className="absolute top-4 right-4 bg-white/10 backdrop-blur-md text-white text-[10px] tracking-[0.15em] uppercase font-body px-3 py-1.5 border border-white/10"
                 >
                   {bd.seeMore}
                 </motion.div>
@@ -217,7 +223,7 @@ export default function Rooms() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center p-4 md:p-8"
+              className="fixed inset-0 z-[999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 md:p-8"
               onClick={() => setSelected(null)}
             >
               <motion.div
@@ -226,22 +232,23 @@ export default function Rooms() {
                 animate="visible"
                 exit="exit"
                 onClick={(e) => e.stopPropagation()}
-                className="bg-background w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+                className="bg-background w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl"
               >
                 <div className="relative">
                   <img src={selected.gallery[galIdx]} alt={info.name} className="w-full h-[35vh] md:h-[50vh] object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
                   <button
                     onClick={(e) => { e.stopPropagation(); setGalIdx((p) => (p - 1 + selected.gallery.length) % selected.gallery.length); }}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-3xl"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-3xl bg-black/20 hover:bg-black/40 w-10 h-10 flex items-center justify-center transition-all"
                   >‹</button>
                   <button
                     onClick={(e) => { e.stopPropagation(); setGalIdx((p) => (p + 1) % selected.gallery.length); }}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-3xl"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-3xl bg-black/20 hover:bg-black/40 w-10 h-10 flex items-center justify-center transition-all"
                   >›</button>
-                  <button onClick={() => setSelected(null)} className="absolute top-4 right-14 bg-black/40 text-white w-9 h-9 flex items-center justify-center hover:bg-black/60 transition-colors text-sm">✕</button>
+                  <button onClick={() => setSelected(null)} className="absolute top-4 right-4 bg-black/50 text-white w-10 h-10 flex items-center justify-center hover:bg-black/70 transition-colors text-sm backdrop-blur-sm">✕</button>
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
                     {selected.gallery.map((_, i) => (
-                      <button key={i} onClick={(e) => { e.stopPropagation(); setGalIdx(i); }} className={`w-1.5 h-1.5 rounded-full transition-all ${i === galIdx ? "bg-white w-5" : "bg-white/40"}`} />
+                      <button key={i} onClick={(e) => { e.stopPropagation(); setGalIdx(i); }} className={`w-1.5 h-1.5 rounded-full transition-all ${i === galIdx ? "bg-white w-6" : "bg-white/40 hover:bg-white/60"}`} />
                     ))}
                   </div>
                 </div>
@@ -256,7 +263,7 @@ export default function Rooms() {
                       <p className="text-[10px] tracking-[0.15em] uppercase text-foreground/40 font-body">{bd.perNight}</p>
                     </div>
                   </div>
-                  <p className="font-body text-foreground/60 leading-relaxed mb-8">{info.long}</p>
+                  <p className="font-body text-foreground/60 leading-relaxed mb-8 border-l-2 border-accent/20 pl-4 italic">{info.long}</p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
                       <p className="text-[10px] tracking-[0.2em] uppercase text-foreground/40 font-body font-medium mb-3">{bd.amenities}</p>
@@ -264,7 +271,7 @@ export default function Rooms() {
                         {info.amenities.map((label: string, i: number) => {
                           const icons = amenityIcons[selected.id] || [];
                           return (
-                            <span key={label} className="text-sm font-body text-foreground/70 bg-secondary/50 px-3 py-1.5">{icons[i] || "•"} {label}</span>
+                            <span key={label} className="text-sm font-body text-foreground/70 bg-secondary/50 px-3 py-1.5 border border-secondary/80">{icons[i] || "•"} {label}</span>
                           );
                         })}
                       </div>
@@ -273,18 +280,21 @@ export default function Rooms() {
                       <p className="text-[10px] tracking-[0.2em] uppercase text-foreground/40 font-body font-medium mb-3">{bd.services}</p>
                       <ul className="space-y-1">
                         {info.services.map((s: string) => (
-                          <li key={s} className="text-sm font-body text-foreground/60">— {s}</li>
+                          <li key={s} className="text-sm font-body text-foreground/60 flex items-center gap-2">
+                            <span className="w-1 h-1 rounded-full bg-accent/30 flex-shrink-0" />
+                            {s}
+                          </li>
                         ))}
                       </ul>
-                      <p className="text-[10px] tracking-[0.2em] uppercase text-foreground/40 font-body mt-4">{bd.capacity}: {selected.capacity}</p>
+                      <p className="text-[10px] tracking-[0.2em] uppercase text-foreground/40 font-body mt-4">{bd.capacity}: <span className="text-foreground/70">{selected.capacity}</span></p>
                     </div>
                   </div>
-                  <div className="mt-8 pt-6 border-t border-secondary flex flex-col md:flex-row gap-3">
+                  <div className="mt-8 pt-6 border-t border-secondary/80 flex flex-col md:flex-row gap-3">
                     <a
                       href={`https://www.simplebooking.it/ibe2/hotel/11431?lang=${locale === "en" ? "EN" : "ES"}&cur=USD`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-accent text-background px-8 py-3 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-accent-light transition-colors text-center"
+                      className="bg-accent text-background px-8 py-3 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-accent-light transition-colors text-center flex-1"
                     >
                       {bd.reserve} {info.name}
                     </a>

@@ -17,10 +17,18 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Introduction />
-        <Amenities />
-        <Testimonials />
-        <Location />
+        <div className="relative bg-gradient-to-b from-background via-background to-secondary/20">
+          <Introduction />
+        </div>
+        <div className="relative bg-secondary/20">
+          <Amenities />
+        </div>
+        <div className="relative bg-background">
+          <Testimonials />
+        </div>
+        <div className="relative bg-gradient-to-b from-secondary/20 via-background to-background">
+          <Location />
+        </div>
       </main>
       <Footer />
     </SmoothScroll>

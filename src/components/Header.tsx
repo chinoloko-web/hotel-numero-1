@@ -42,9 +42,11 @@ export default function Header() {
       className="fixed top-0 left-0 w-full z-50 transition-all duration-300 px-8 md:px-12 flex items-center"
       style={{
         height: scrolled ? "64px" : "96px",
-        backgroundColor: scrolled ? "rgba(250,248,245,0.92)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(46,74,61,0.06)" : "1px solid transparent",
+        backgroundColor: scrolled ? "rgba(250,248,245,0.85)" : "transparent",
+        backdropFilter: scrolled ? "blur(16px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(46,74,61,0.08)" : "1px solid transparent",
+        boxShadow: scrolled ? "0 1px 20px rgba(0,0,0,0.04)" : "none",
       }}
     >
       <div className="flex items-center justify-between w-full max-w-7xl mx-auto">

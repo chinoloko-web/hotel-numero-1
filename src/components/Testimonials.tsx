@@ -31,17 +31,23 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="w-full py-32 overflow-hidden">
-      <div className="px-6 md:px-12 mb-16 max-w-7xl mx-auto">
+    <section className="relative w-full py-32 md:py-40 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/[0.02] rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/[0.02] rounded-full blur-3xl" />
+      </div>
+      <div className="px-6 md:px-12 mb-16 max-w-7xl mx-auto relative">
         <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-4">{dict.testimonials.badge}</p>
         <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight">{dict.testimonials.title}</h2>
+        <div className="w-16 h-0.5 bg-accent/20 mt-6" />
       </div>
       <div className="relative overflow-hidden">
         <div ref={trackRef} className="flex gap-8 px-6 md:px-12" style={{ width: "max-content", willChange: "transform" }}>
           {[...data, ...data, ...data].map((t, i) => (
-            <div key={i} className="min-w-[350px] md:min-w-[420px] bg-white p-8 md:p-10 border border-secondary/50 flex-shrink-0">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent text-sm font-heading font-medium">
+            <div key={i} className="min-w-[350px] md:min-w-[420px] bg-white/80 backdrop-blur-sm p-8 md:p-10 border border-secondary/50 flex-shrink-0 relative hover:shadow-xl hover:shadow-accent/5 transition-shadow duration-500">
+              <span className="absolute top-6 left-6 text-5xl text-accent/10 font-heading leading-none select-none" aria-hidden>&ldquo;</span>
+              <div className="flex items-center gap-4 mb-6 relative">
+                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent text-sm font-heading font-medium ring-2 ring-accent/20">
                   {t.name.charAt(0)}
                 </div>
                 <div>
@@ -50,9 +56,9 @@ export default function Testimonials() {
                 </div>
               </div>
               <div className="flex gap-1 mb-4">{Array.from({ length: 5 }).map((_, i) => (
-                <span key={i} className="text-accent text-sm">★</span>
+                <span key={i} className="text-accent/70 text-sm">★</span>
               ))}</div>
-              <p className="font-body text-foreground/70 leading-relaxed italic">&ldquo;{t.text}&rdquo;</p>
+              <p className="font-body text-foreground/70 leading-relaxed italic relative z-10">&ldquo;{t.text}&rdquo;</p>
             </div>
           ))}
         </div>

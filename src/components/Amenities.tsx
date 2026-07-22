@@ -32,24 +32,31 @@ const itemVariants = {
   },
 };
 
+const amenityIcons = [
+  "📍", "🛋️", "🤝", "🐾", "🚗", "🔒",
+];
+
 export default function Amenities() {
   const [lightbox, setLightbox] = useState<number | null>(null);
   const { dict } = useT();
 
   return (
-    <section id="galeria" className="w-full py-20 md:py-28 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
+    <section id="galeria" className="relative w-full py-24 md:py-32 px-6 md:px-12 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-accent/[0.03] rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-accent/[0.04] rounded-full blur-3xl" />
+      </div>
+      <div className="max-w-7xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-10"
+          className="mb-12 text-center"
         >
           <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-3">{dict.amenities.badge}</p>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight">
-            {dict.amenities.title}
-          </h2>
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-4">{dict.amenities.title}</h2>
+          <div className="w-12 h-0.5 bg-accent/20 mx-auto" />
         </motion.div>
 
         <motion.div
@@ -57,17 +64,20 @@ export default function Amenities() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-12"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5 mb-16"
         >
           {dict.amenities.items.map((item: { title: string; desc: string }, i: number) => (
             <motion.div
               key={item.title}
               variants={itemVariants}
-              whileHover={{ y: -4, borderColor: "#2E4A3D" }}
-              className="bg-secondary/30 p-4 md:p-5 text-center border border-transparent transition-colors duration-300"
+              whileHover={{ y: -6, borderColor: "#2E4A3D" }}
+              className="group bg-background/60 backdrop-blur-sm p-5 md:p-6 text-center border border-secondary/60 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all duration-500"
             >
+              <span className="text-2xl md:text-3xl block mb-3 group-hover:scale-110 transition-transform duration-500">
+                {amenityIcons[i] || "•"}
+              </span>
               <h3 className="font-heading text-sm md:text-base text-foreground mb-1">{item.title}</h3>
-              <p className="text-[10px] md:text-xs text-foreground/50 font-body">{item.desc}</p>
+              <p className="text-[10px] md:text-xs text-foreground/50 font-body leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -85,9 +95,11 @@ export default function Amenities() {
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
               onClick={() => setLightbox(i)}
-              className="break-inside-avoid overflow-hidden group w-full text-left"
+              className="break-inside-avoid overflow-hidden group w-full text-left relative"
             >
-              <img src={src} alt="" className="w-full object-cover transition-transform duration-[1.2s] group-hover:scale-105" loading="lazy" />
+              <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/5 transition-colors duration-700 z-10" />
+              <img src={src} alt="" className="w-full object-cover transition-all duration-[1.2s] group-hover:scale-105" loading="lazy" />
+              <div className="absolute inset-0 border border-accent/0 group-hover:border-accent/20 transition-colors duration-700" />
             </motion.button>
           ))}
         </motion.div>
