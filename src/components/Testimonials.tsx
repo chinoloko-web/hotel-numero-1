@@ -39,7 +39,9 @@ export default function Testimonials() {
           {[...data, ...data, ...data].map((t, i) => (
             <div key={i} className="min-w-[350px] md:min-w-[420px] bg-white p-8 md:p-10 border border-secondary/50 flex-shrink-0">
               <div className="flex items-center gap-4 mb-6">
-                <img src={t.img} alt={t.name} className="w-10 h-10 rounded-full object-cover" />
+                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent text-sm font-heading font-medium">
+                  {t.name.charAt(0)}
+                </div>
                 <div>
                   <p className="font-body text-sm font-medium text-foreground">{t.name}</p>
                   <p className="text-[10px] tracking-[0.15em] uppercase text-foreground/40 font-body">{t.country}</p>
