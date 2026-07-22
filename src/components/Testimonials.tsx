@@ -44,21 +44,21 @@ export default function Testimonials() {
       <div className="relative overflow-hidden">
         <div ref={trackRef} className="flex gap-8 px-6 md:px-12" style={{ width: "max-content", willChange: "transform" }}>
           {[...data, ...data, ...data].map((t, i) => (
-            <div key={i} className="min-w-[350px] md:min-w-[420px] bg-white/80 backdrop-blur-sm p-8 md:p-10 border border-secondary/50 flex-shrink-0 relative hover:shadow-xl hover:shadow-accent/5 transition-shadow duration-500">
-              <span className="absolute top-6 left-6 text-5xl text-accent/10 font-heading leading-none select-none" aria-hidden>&ldquo;</span>
-              <div className="flex items-center gap-4 mb-6 relative">
-                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent text-sm font-heading font-medium ring-2 ring-accent/20">
+              <div key={i} className="min-w-[300px] md:min-w-[360px] bg-white/80 backdrop-blur-sm p-6 md:p-8 border border-secondary/50 flex-shrink-0 relative hover:shadow-xl hover:shadow-accent/5 transition-shadow duration-500">
+              <span className="absolute top-5 left-5 text-4xl text-accent/10 font-heading leading-none select-none" aria-hidden>&ldquo;</span>
+              <div className="flex items-center gap-3 mb-4 relative">
+                <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent text-xs font-heading font-medium ring-2 ring-accent/20">
                   {t.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="font-body text-sm font-medium text-foreground">{t.name}</p>
-                  <p className="text-[10px] tracking-[0.15em] uppercase text-foreground/40 font-body">{t.country}</p>
+                  <p className="font-body text-xs font-medium text-foreground">{t.name}</p>
+                  <p className="text-[9px] tracking-[0.15em] uppercase text-foreground/40 font-body">{t.country}</p>
                 </div>
               </div>
-              <div className="flex gap-1 mb-4">{Array.from({ length: 5 }).map((_, i) => (
-                <span key={i} className="text-accent/70 text-sm">★</span>
+              <div className="flex gap-1 mb-3">{Array.from({ length: 5 }).map((_, i) => (
+                <span key={i} className="text-accent/70 text-[11px]">★</span>
               ))}</div>
-              <p className="font-body text-foreground/70 leading-relaxed italic relative z-10">&ldquo;{t.text}&rdquo;</p>
+              <p className="font-body text-foreground/60 leading-relaxed italic relative z-10 text-xs">&ldquo;{t.text}&rdquo;</p>
             </div>
           ))}
         </div>
