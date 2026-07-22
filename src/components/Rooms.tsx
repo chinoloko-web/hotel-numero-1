@@ -274,15 +274,14 @@ export default function Bungalows() {
                   </div>
                 </div>
                 <div className="mt-8 pt-6 border-t border-secondary flex flex-col md:flex-row gap-3">
-                  <button
-                    onClick={() => {
-                      const el = document.getElementById("reservar");
-                      if (el) { el.scrollIntoView({ behavior: "smooth" }); setSelected(null); }
-                    }}
+                  <a
+                    href="https://www.simplebooking.it/ibe2/hotel/11431?lang=ES&cur=USD"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-accent text-background px-8 py-3 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-accent-light transition-colors text-center"
                   >
                     Reservar {selected.name}
-                  </button>
+                  </a>
                   <button onClick={() => setSelected(null)} className="border border-foreground/20 text-foreground px-8 py-3 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-foreground/5 transition-colors">
                     Cerrar
                   </button>

@@ -72,12 +72,14 @@ export default function Header() {
           ))}
         </nav>
 
-        <button
-          onClick={handleReservar}
+        <a
+          href="https://www.simplebooking.it/ibe2/hotel/11431?lang=ES&cur=USD"
+          target="_blank"
+          rel="noopener noreferrer"
           className="bg-accent text-background px-6 py-2.5 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-accent-light transition-colors duration-500"
         >
           Reservar
-        </button>
+        </a>
       </div>
     </header>
   );

@@ -74,12 +74,14 @@ export default function Hero() {
           More than a lodge… A haven of natural peace
         </p>
         <div ref={ctaRef} className="flex flex-col md:flex-row items-center gap-4">
-          <button
-            onClick={() => scrollTo("reservar")}
+          <a
+            href="https://www.simplebooking.it/ibe2/hotel/11431?lang=ES&cur=USD"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-white text-foreground px-10 py-3.5 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-white/90 transition-colors"
           >
             Reservar Ahora
-          </button>
+          </a>
           <a
             href="/bungalows"
             className="text-white/80 text-sm tracking-[0.15em] uppercase font-body font-medium hover:text-white transition-colors"
