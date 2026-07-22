@@ -80,7 +80,7 @@ const bungalows: Bungalow[] = [
     long: "Rodeado de vegetación exuberante, este bungalow ofrece la combinación perfecta de confort y naturaleza. Ideal para desconectar del mundo.",
     price: "$135.19",
     capacity: "2 adultos",
-    image: "/images/bungalow-perezoso/IMG_8575.JPG",
+    image: "/images/bungalow-perezoso/IMG_0178.JPG",
     gallery: [
       "/images/bungalow-perezoso/IMG_8576.JPG",
       "/images/bungalow-perezoso/IMG_8577.JPG",
