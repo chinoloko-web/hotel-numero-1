@@ -8,81 +8,47 @@ export default function Introduction() {
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
-
-    const img = el.querySelector("[data-intro-img]") as HTMLElement;
-    const title = el.querySelector("[data-intro-title]") as HTMLElement;
-    const text = el.querySelector("[data-intro-text]") as HTMLElement;
-    if (!img || !title || !text) return;
-
+    const children = el.querySelectorAll("[data-reveal]");
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            img.style.transition = "all 1.2s cubic-bezier(.25,.46,.45,.94)";
-            img.style.opacity = "1";
-            img.style.transform = "translateX(0)";
-
-            setTimeout(() => {
-              title.style.transition = "all 0.8s cubic-bezier(.25,.46,.45,.94)";
-              title.style.opacity = "1";
-              title.style.transform = "translateY(0)";
-            }, 300);
-
-            setTimeout(() => {
-              text.style.transition = "all 0.8s cubic-bezier(.25,.46,.45,.94)";
-              text.style.opacity = "1";
-              text.style.transform = "translateY(0)";
-            }, 500);
-
-            observer.disconnect();
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          children.forEach((child, i) => {
+            (child as HTMLElement).style.transition = `all 0.8s cubic-bezier(.25,.46,.45,.94) ${i * 0.15}s`;
+            (child as HTMLElement).style.opacity = "1";
+            (child as HTMLElement).style.transform = "translateY(0)";
+          });
+          observer.disconnect();
+        }
       },
       { threshold: 0.2 }
     );
-
-    img.style.opacity = "0";
-    img.style.transform = "translateX(-80px)";
-    title.style.opacity = "0";
-    title.style.transform = "translateY(40px)";
-    text.style.opacity = "0";
-    text.style.transform = "translateY(30px)";
-
+    children.forEach((child) => {
+      (child as HTMLElement).style.opacity = "0";
+      (child as HTMLElement).style.transform = "translateY(30px)";
+    });
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={sectionRef} id="introduccion" className="min-h-screen w-full py-32 md:py-44 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
-        <div className="relative h-[60vh] md:h-[80vh] overflow-hidden">
-          <img
-            data-intro-img
-            src="/images/vistas/IMG_5158.jpg"
-            alt="Arquitectura tropical"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="max-w-lg">
-          <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-8">
-            Bienvenido
-          </p>
-          <h2
-            data-intro-title
-            className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.15] mb-8"
-          >
-            Bienvenido a Paraíso Celeste
-          </h2>
-          <p
-            data-intro-text
-            className="font-body text-base md:text-lg text-foreground/60 leading-relaxed"
-          >
-            En Paraíso Celeste creemos en la conexión auténtica con la
-            naturaleza y la cultura local. Cada visita es una oportunidad
-            de sumergirte en la esencia de Bijagua, dejando que la magia
-            de este paraíso perdure en tu memoria mucho después de partir.
-          </p>
-        </div>
+    <section ref={sectionRef} className="w-full py-20 md:py-28 px-6 md:px-12">
+      <div className="max-w-4xl mx-auto text-center">
+        <p data-reveal className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-6">Bienvenido</p>
+        <h2 data-reveal className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-6">
+          Más que un lodge… Un refugio de paz natural
+        </h2>
+        <p data-reveal className="font-body text-base md:text-lg text-foreground/60 leading-relaxed">
+          Enclavado en Bijagua, Costa Rica, Paraíso Celeste te invita a
+          conectar con la naturaleza. A minutos del Volcán Tenorio y la
+          Catarata Río Celeste, cada estancia es una experiencia única.
+        </p>
+        <a
+          data-reveal
+          href="/bungalows"
+          className="inline-block mt-8 border border-accent text-accent px-8 py-3 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-accent hover:text-background transition-colors"
+        >
+          Ver nuestros bungalows
+        </a>
       </div>
     </section>
   );

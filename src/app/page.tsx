@@ -1,7 +1,8 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Bungalows from "@/components/Rooms";
+import Introduction from "@/components/Introduction";
 import Amenities from "@/components/Amenities";
+import Testimonials from "@/components/Testimonials";
 import Location from "@/components/Location";
 import CtaFinal from "@/components/CtaFinal";
 import Footer from "@/components/Footer";
@@ -17,8 +18,9 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Bungalows />
+        <Introduction />
         <Amenities />
+        <Testimonials />
         <Location />
         <CtaFinal />
       </main>

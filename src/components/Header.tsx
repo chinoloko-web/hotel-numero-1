@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 
 const links = [
-  { label: "Bungalows", href: "#bungalows" },
-  { label: "Experiencias", href: "#experiencias" },
+  { label: "Bungalows", href: "/bungalows" },
   { label: "Galería", href: "#galeria" },
+  { label: "Ubicación", href: "#ubicacion" },
 ];
 
 export default function Header() {
@@ -34,31 +34,44 @@ export default function Header() {
       }}
     >
       <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
-        <span
+        <a
+          href="/"
           className="font-heading tracking-[0.08em] text-foreground transition-all duration-300"
           style={{ fontSize: scrolled ? "1.25rem" : "1.5rem" }}
         >
           Paraíso Celeste
-        </span>
+        </a>
 
         <nav className="hidden md:flex items-center gap-10">
           {links.map((l) => (
-            <button
-              key={l.href}
-              onClick={() => scrollTo(l.href.slice(1))}
-              className="text-sm tracking-[0.15em] uppercase text-foreground/70 hover:text-foreground transition-colors font-body font-medium"
-            >
-              {l.label}
-            </button>
+            l.href.startsWith("/") ? (
+              <a
+                key={l.href}
+                href={l.href}
+                className="text-sm tracking-[0.15em] uppercase text-foreground/70 hover:text-foreground transition-colors font-body font-medium"
+              >
+                {l.label}
+              </a>
+            ) : (
+              <button
+                key={l.href}
+                onClick={() => scrollTo(l.href.slice(1))}
+                className="text-sm tracking-[0.15em] uppercase text-foreground/70 hover:text-foreground transition-colors font-body font-medium"
+              >
+                {l.label}
+              </button>
+            )
           ))}
         </nav>
 
-        <button
-          onClick={() => scrollTo("reservar")}
+        <a
+          href="https://www.simplebooking.it/ibe2/hotel/11431?lang=ES&cur=USD"
+          target="_blank"
+          rel="noopener noreferrer"
           className="bg-accent text-background px-6 py-2.5 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-accent-light transition-colors duration-500"
         >
           Reservar
-        </button>
+        </a>
       </div>
     </header>
   );

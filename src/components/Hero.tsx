@@ -80,17 +80,17 @@ export default function Hero() {
           >
             Reservar Ahora
           </a>
-          <button
-            onClick={() => scrollTo("bungalows")}
+          <a
+            href="/bungalows"
             className="text-white/80 text-sm tracking-[0.15em] uppercase font-body font-medium hover:text-white transition-colors"
           >
             Ver Bungalows
-          </button>
+          </a>
         </div>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 z-10 flex justify-center pb-8">
-        <button onClick={() => scrollTo("bungalows")} className="text-white/40 text-2xl animate-bounce">↓</button>
+        <a href="/bungalows" className="text-white/40 text-2xl animate-bounce">↓</a>
       </div>
     </section>
   );
