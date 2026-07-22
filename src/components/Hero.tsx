@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import BookingEngine from "./BookingEngine";
 
 export default function Hero() {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -57,11 +56,14 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/30" />
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-          <h1
-            ref={titleRef}
-            className="font-heading text-4xl md:text-6xl lg:text-7xl text-white tracking-[0.04em] leading-none mb-6"
-          >
-            Más que un lodge…<br />Un refugio de paz natural
+        <p className="text-white/50 text-xs tracking-[0.25em] uppercase font-body font-medium mb-6">
+          Bijagua, Costa Rica
+        </p>
+        <h1
+          ref={titleRef}
+          className="font-heading text-4xl md:text-6xl lg:text-7xl text-white tracking-[0.04em] leading-none mb-4"
+        >
+          Más que un lodge…<br />Un refugio de paz natural
         </h1>
         <p
           ref={subtitleRef}
@@ -69,23 +71,27 @@ export default function Hero() {
         >
           More than a lodge… A haven of natural peace
         </p>
-        <div ref={ctaRef} className="flex flex-col md:flex-row items-center gap-6">
-          <button
-            onClick={() => scrollTo("reservar")}
+        <div ref={ctaRef} className="flex flex-col md:flex-row items-center gap-4">
+          <a
+            href="https://www.simplebooking.it/ibe2/hotel/11431?lang=ES&cur=USD"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-white text-foreground px-10 py-3.5 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-white/90 transition-colors"
           >
             Reservar Ahora
-          </button>
+          </a>
           <button
-            onClick={() => scrollTo("introduccion")}
+            onClick={() => scrollTo("bungalows")}
             className="text-white/80 text-sm tracking-[0.15em] uppercase font-body font-medium hover:text-white transition-colors"
           >
-            Explorar
+            Ver Bungalows
           </button>
         </div>
       </div>
 
-      <BookingEngine />
+      <div className="absolute bottom-0 left-0 right-0 z-10 flex justify-center pb-8">
+        <button onClick={() => scrollTo("bungalows")} className="text-white/40 text-2xl animate-bounce">↓</button>
+      </div>
     </section>
   );
 }
