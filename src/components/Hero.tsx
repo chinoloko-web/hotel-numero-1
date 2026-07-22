@@ -57,17 +57,17 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/30" />
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-        <h1
-          ref={titleRef}
-          className="font-heading text-5xl md:text-7xl lg:text-8xl text-white tracking-[0.04em] leading-none mb-6"
-        >
-          Escape to Paradise
+          <h1
+            ref={titleRef}
+            className="font-heading text-4xl md:text-6xl lg:text-7xl text-white tracking-[0.04em] leading-none mb-6"
+          >
+            Más que un lodge…<br />Un refugio de paz natural
         </h1>
         <p
           ref={subtitleRef}
           className="font-body text-base md:text-lg text-white/70 tracking-[0.2em] uppercase max-w-lg mx-auto mb-10"
         >
-          Donde el tiempo se mueve más lento
+          More than a lodge… A haven of natural peace
         </p>
         <div ref={ctaRef} className="flex flex-col md:flex-row items-center gap-6">
           <button

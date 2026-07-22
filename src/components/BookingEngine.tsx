@@ -9,6 +9,12 @@ export default function BookingEngine() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const url = new URL("https://www.simplebooking.it/ibe2/hotel/11431");
+    url.searchParams.set("lang", "ES");
+    url.searchParams.set("cur", "USD");
+    if (checkIn) url.searchParams.set("in", checkIn);
+    if (checkOut) url.searchParams.set("out", checkOut);
+    window.open(url.toString(), "_blank");
   };
 
   return (

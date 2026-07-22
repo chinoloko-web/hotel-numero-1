@@ -17,24 +17,31 @@ export default function Footer() {
           <div className="md:col-span-1">
             <span className="font-heading text-2xl tracking-[0.06em] text-white">Paraíso Celeste</span>
             <p className="font-body text-sm text-background/50 mt-4 max-w-xs leading-relaxed">
-              Donde el tiempo se mueve más lento. Un refugio boutique de lujo en la Riviera Maya.
+              Donde el tiempo se mueve más lento.               Un refugio de lujo en Bijagua, Costa Rica.
             </p>
           </div>
           <div>
             <p className="text-[10px] tracking-[0.2em] uppercase text-background/40 font-body font-medium mb-6">Contacto</p>
             <ul className="space-y-3 font-body text-sm">
-              <li>Carretera Tulum-Boca Paila Km 7.5</li>
-              <li>Tulum, Quintana Roo</li>
-              <li>+52 984 123 4567</li>
-              <li>hola@paraisoceleste.com</li>
+              <li>Del colono de Bijagua, al sureste 3 km</li>
+              <li>Bijagua de Upala, Alajuela, Costa Rica</li>
+              <li>+506 8945 8333</li>
+              <li>gerencia@bungalowsparaisoceleste.com</li>
             </ul>
           </div>
           <div>
             <p className="text-[10px] tracking-[0.2em] uppercase text-background/40 font-body font-medium mb-6">Síguenos</p>
             <ul className="space-y-3">
-              {["WhatsApp", "Instagram", "Facebook"].map((s) => (
+              {["WhatsApp", "Instagram"].map((s) => (
                 <li key={s}>
-                  <a href="#" className="font-body text-sm hover:text-white transition-colors">{s}</a>
+                  <a
+                    href={s === "WhatsApp" ? "https://wa.link/bw45cj" : "https://www.instagram.com/bungalows_paraisoceleste/"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-body text-sm hover:text-white transition-colors"
+                  >
+                    {s}
+                  </a>
                 </li>
               ))}
             </ul>

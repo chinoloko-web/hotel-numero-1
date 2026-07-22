@@ -3,9 +3,9 @@
 import { useRef, useEffect } from "react";
 
 const data = [
-  { name: "Ana García", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80", text: "No hay palabras para describir la experiencia. Cada detalle está cuidado con una dedicación que solo se encuentra en los lugares más especiales del mundo.", country: "México" },
-  { name: "James Mitchell", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80", text: "The silence, the nature, the architecture. Everything feels intentional. This is not a hotel, this is a sanctuary.", country: "EE.UU." },
-  { name: "Sophie Laurent", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80", text: "Un paradis sur terre. Le spa au coucher du soleil restera gravé dans ma mémoire pour toujours.", country: "Francia" },
+  { name: "Joudy", img: "", text: "Me encantó la experiencia en este hospedaje, la vista de la habitación y la paz que hay. Está totalmente equipada entonces pudimos preparar varias comidas. Mi parte favorita es que está muy cerca del parque volcán Tenorio aprox 10mins y del laberinto Katira. Recomiendo al 100% este hospedaje para escaparse con la familia, amigos o pareja.", country: "Costa Rica" },
+  { name: "Jonathan", img: "", text: "Un lugar hermoso, una vista increíble como ninguna en la zona reforzada con la excelente atención al cliente orden y limpieza.", country: "Costa Rica" },
+  { name: "Teresita", img: "", text: "La ubicación de los bungalows es excelente, con una vista espectacular hacia las montañas, están muy bien equipados, tienen unos bellísimos balcones desde donde se puede apreciar el amanecer y el atardecer en todo su esplendor.", country: "Costa Rica" },
 ];
 
 export default function Testimonials() {

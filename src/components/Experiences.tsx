@@ -4,22 +4,22 @@ import { useEffect, useRef } from "react";
 
 const data = [
   {
-    title: "Cenotes Sagrados",
-    desc: "Sumérgete en aguas cristalinas milenarias. Un viaje al corazón de la península.",
+    title: "Catarata Río Celeste",
+    desc: "Camina hasta la impresionante catarata de aguas turquesas. A solo 10 minutos del hotel.",
     img: "/images/vistas/IMG_1543.jpg",
     time: "Medio día",
   },
   {
-    title: "Cena en la Selva",
-    desc: "Bajo un dosel de estrellas, una experiencia gastronómica que despierta los sentidos.",
+    title: "Volcán Tenorio",
+    desc: "Explora los senderos del Parque Nacional Volcán Tenorio y maravíllate con su biodiversidad.",
     img: "/images/vistas/IMG_2365.jpg",
-    time: "3 horas",
+    time: "Día completo",
   },
   {
-    title: "Amanecer en el Mar",
-    desc: "Kayak al amanecer cuando el sol pinta el horizonte de dorado. El mundo es solo tuyo.",
+    title: "Árbol Gigante",
+    desc: "Conoce el árbol de 450 años, una maravilla natural que te conecta con la historia de la zona.",
     img: "/images/vistas/IMG_4015.jpg",
-    time: "Mañana completa",
+    time: "2 horas",
   },
 ];
 

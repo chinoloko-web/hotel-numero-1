@@ -3,12 +3,12 @@
 import { useEffect, useRef } from "react";
 
 const items = [
-  { title: "Spa", desc: "Rituales ancestrales.", img: "/images/vistas/IMG_1709.jpg", span: "md:col-span-1 md:row-span-2" },
-  { title: "Piscina Infinita", desc: "Agua y horizonte.", img: "/images/vistas/IMG_1541.jpg", span: "md:col-span-2 md:row-span-1" },
-  { title: "Restaurante", desc: "Cocina de autor.", img: "/images/vistas/IMG_2332.jpg", span: "md:col-span-1 md:row-span-1" },
-  { title: "Yoga", desc: "Frente al océano.", img: "/images/fauna/IMG_4391.jpg", span: "md:col-span-1 md:row-span-1" },
-  { title: "Playa Privada", desc: "Arena blanca, silencio total.", img: "/images/vistas/IMG_4014.jpg", span: "md:col-span-2 md:row-span-1" },
-  { title: "Tours", desc: "Cenotes y ruinas.", img: "/images/vistas/IMG_8414.jpg", span: "md:col-span-1 md:row-span-1" },
+  { title: "Ubicación Excelente", desc: "En Bijagua, cerca del Volcán Tenorio y Río Celeste.", img: "/images/vistas/IMG_1709.jpg", span: "md:col-span-1 md:row-span-2" },
+  { title: "Habitaciones Equipadas", desc: "Cocina completa, TV 32\" y más.", img: "/images/vistas/IMG_1541.jpg", span: "md:col-span-2 md:row-span-1" },
+  { title: "Servicio Amable", desc: "Atención personalizada para tu estancia.", img: "/images/vistas/IMG_2332.jpg", span: "md:col-span-1 md:row-span-1" },
+  { title: "Lugar Seguro", desc: "Tranquilidad y privacidad total.", img: "/images/fauna/IMG_4391.jpg", span: "md:col-span-1 md:row-span-1" },
+  { title: "Pet Friendly", desc: "Tu mascota también es bienvenida.", img: "/images/vistas/IMG_4014.jpg", span: "md:col-span-2 md:row-span-1" },
+  { title: "Estacionamiento", desc: "Garaje privado para tu vehículo.", img: "/images/vistas/IMG_8414.jpg", span: "md:col-span-1 md:row-span-1" },
 ];
 
 export default function Amenities() {

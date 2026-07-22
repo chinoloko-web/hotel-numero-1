@@ -18,7 +18,9 @@ export default function CtaFinal() {
           Cada viaje es único. Déjanos ser parte del tuyo.
         </p>
         <a
-          href="#"
+          href="https://www.simplebooking.it/ibe2/hotel/11431?lang=ES&cur=USD"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-block bg-white text-foreground px-12 py-4 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-white/90 transition-colors"
         >
           Reserva tu experiencia

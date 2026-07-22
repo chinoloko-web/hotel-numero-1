@@ -71,15 +71,16 @@ export default function Introduction() {
             data-intro-title
             className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.15] mb-8"
           >
-            Despierta con el sonido del océano
+            Bienvenido a Paraíso Celeste
           </h2>
           <p
             data-intro-text
             className="font-body text-base md:text-lg text-foreground/60 leading-relaxed"
           >
-            Enclavado entre la selva y el mar Caribe, Paraíso Celeste es más
-            que un hotel. Es un santuario donde cada amanecer cuenta una
-            historia distinta. Donde el único itinerario es el presente.
+            En Paraíso Celeste creemos en la conexión auténtica con la
+            naturaleza y la cultura local. Cada visita es una oportunidad
+            de sumergirte en la esencia de Bijagua, dejando que la magia
+            de este paraíso perdure en tu memoria mucho después de partir.
           </p>
         </div>
       </div>
