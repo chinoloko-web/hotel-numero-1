@@ -2,18 +2,26 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useT } from "@/contexts/TranslationContext";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const { dict, locale } = useT();
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const otherLocale = locale === "es" ? "en" : "es";
+
+  const segments = pathname.split("/").filter(Boolean);
+  if (segments.length > 0) segments[0] = otherLocale;
+  const switchHref = "/" + segments.join("/");
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -27,20 +35,6 @@ export default function Header() {
       window.location.href = `/${locale}/#reservar`;
     }
   };
-
-  const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith("/#") && window.location.pathname === `/${locale}`) {
-      e.preventDefault();
-      const id = href.slice(2);
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const otherLocale = locale === "es" ? "en" : "es";
-  const currentPath =
-    typeof window !== "undefined"
-      ? window.location.pathname.replace(`/${locale}`, "") || "/"
-      : "/";
 
   return (
     <header
@@ -71,21 +65,19 @@ export default function Header() {
           </Link>
           <a
             href={`/${locale}/#galeria`}
-            onClick={(e) => handleNav(e, `/${locale}/#galeria`)}
             className="text-sm tracking-[0.15em] uppercase text-foreground/70 hover:text-foreground transition-colors font-body font-medium"
           >
             {dict.nav.galeria}
           </a>
           <a
             href={`/${locale}/#ubicacion`}
-            onClick={(e) => handleNav(e, `/${locale}/#ubicacion`)}
             className="text-sm tracking-[0.15em] uppercase text-foreground/70 hover:text-foreground transition-colors font-body font-medium"
           >
             {dict.nav.ubicacion}
           </a>
 
           <Link
-            href={`/${otherLocale}${currentPath}`}
+            href={switchHref}
             className="text-[11px] tracking-[0.15em] uppercase text-foreground/40 hover:text-foreground transition-colors font-body font-medium border border-foreground/20 px-3 py-1"
           >
             {otherLocale === "en" ? "EN" : "ES"}
