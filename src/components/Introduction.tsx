@@ -58,7 +58,7 @@ export default function Introduction() {
         <div className="relative h-[60vh] md:h-[80vh] overflow-hidden">
           <img
             data-intro-img
-            src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=800&q=85"
+            src="/images/vistas/IMG_5158.jpg"
             alt="Arquitectura tropical"
             className="w-full h-full object-cover"
           />

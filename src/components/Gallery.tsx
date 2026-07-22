@@ -4,14 +4,14 @@ import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
-  "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=600&q=85",
-  "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=400&q=85",
-  "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=500&q=85",
-  "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=400&q=85",
-  "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=85",
-  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=85",
-  "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&w=400&q=85",
-  "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=85",
+  "/images/vistas/IMG_1541.jpg",
+  "/images/vistas/IMG_1542.jpg",
+  "/images/vistas/IMG_1708.jpg",
+  "/images/vistas/IMG_2332.jpg",
+  "/images/vistas/IMG_4014.jpg",
+  "/images/vistas/IMG_5146.jpg",
+  "/images/vistas/IMG_5150.jpg",
+  "/images/vistas/IMG_5153.jpg",
 ];
 
 export default function Gallery() {

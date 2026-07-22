@@ -6,19 +6,19 @@ const data = [
   {
     title: "Cenotes Sagrados",
     desc: "Sumérgete en aguas cristalinas milenarias. Un viaje al corazón de la península.",
-    img: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&w=800&q=85",
+    img: "/images/vistas/IMG_1543.jpg",
     time: "Medio día",
   },
   {
     title: "Cena en la Selva",
     desc: "Bajo un dosel de estrellas, una experiencia gastronómica que despierta los sentidos.",
-    img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=85",
+    img: "/images/vistas/IMG_2365.jpg",
     time: "3 horas",
   },
   {
     title: "Amanecer en el Mar",
     desc: "Kayak al amanecer cuando el sol pinta el horizonte de dorado. El mundo es solo tuyo.",
-    img: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=800&q=85",
+    img: "/images/vistas/IMG_4015.jpg",
     time: "Mañana completa",
   },
 ];

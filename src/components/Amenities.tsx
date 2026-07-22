@@ -3,12 +3,12 @@
 import { useEffect, useRef } from "react";
 
 const items = [
-  { title: "Spa", desc: "Rituales ancestrales.", img: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=85", span: "md:col-span-1 md:row-span-2" },
-  { title: "Piscina Infinita", desc: "Agua y horizonte.", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=85", span: "md:col-span-2 md:row-span-1" },
-  { title: "Restaurante", desc: "Cocina de autor.", img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=85", span: "md:col-span-1 md:row-span-1" },
-  { title: "Yoga", desc: "Frente al océano.", img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=85", span: "md:col-span-1 md:row-span-1" },
-  { title: "Playa Privada", desc: "Arena blanca, silencio total.", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=85", span: "md:col-span-2 md:row-span-1" },
-  { title: "Tours", desc: "Cenotes y ruinas.", img: "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?auto=format&fit=crop&w=600&q=85", span: "md:col-span-1 md:row-span-1" },
+  { title: "Spa", desc: "Rituales ancestrales.", img: "/images/vistas/IMG_1709.jpg", span: "md:col-span-1 md:row-span-2" },
+  { title: "Piscina Infinita", desc: "Agua y horizonte.", img: "/images/vistas/IMG_1541.jpg", span: "md:col-span-2 md:row-span-1" },
+  { title: "Restaurante", desc: "Cocina de autor.", img: "/images/vistas/IMG_2332.jpg", span: "md:col-span-1 md:row-span-1" },
+  { title: "Yoga", desc: "Frente al océano.", img: "/images/fauna/IMG_4391.jpg", span: "md:col-span-1 md:row-span-1" },
+  { title: "Playa Privada", desc: "Arena blanca, silencio total.", img: "/images/vistas/IMG_4014.jpg", span: "md:col-span-2 md:row-span-1" },
+  { title: "Tours", desc: "Cenotes y ruinas.", img: "/images/vistas/IMG_8414.jpg", span: "md:col-span-1 md:row-span-1" },
 ];
 
 export default function Amenities() {

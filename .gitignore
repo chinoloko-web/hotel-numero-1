@@ -38,6 +38,7 @@ yarn-error.log*
 *.MOV
 *.HEIC
 *.heic
+*.heif
 
 # vercel
 .vercel
