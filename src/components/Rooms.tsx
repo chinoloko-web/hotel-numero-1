@@ -24,7 +24,7 @@ const bungalows: Bungalow[] = [
     long: "Sumérgete en la tranquilidad de este bungalow privado. Rodeado de vegetación exuberante, con todos los detalles cuidados para que tu estancia sea inolvidable.",
     price: "$135.19",
     capacity: "2 adultos",
-    image: "/images/bungalow-colibri/IMG_4090.jpg",
+    image: "/images/bungalow-colibri/_MG_3454.JPG",
     gallery: [
       "/images/bungalow-colibri/_MG_3442.JPG",
       "/images/bungalow-colibri/_MG_3443.JPG",
@@ -52,7 +52,7 @@ const bungalows: Bungalow[] = [
     long: "Un espacio diseñado para conectar con la naturaleza. Amplio, iluminado y con todos los detalles que hacen de tu estancia una experiencia única.",
     price: "$120.71",
     capacity: "2 adultos",
-    image: "/images/bungalow-tucan/IMG_7370.jpg",
+    image: "/images/bungalow-tucan/IMG_7370_h.jpg",
     gallery: [
       "/images/bungalow-tucan/IMG_8586.jpg",
       "/images/bungalow-tucan/IMG_8587.jpg",
@@ -80,7 +80,7 @@ const bungalows: Bungalow[] = [
     long: "Rodeado de vegetación exuberante, este bungalow ofrece la combinación perfecta de confort y naturaleza. Ideal para desconectar del mundo.",
     price: "$135.19",
     capacity: "2 adultos",
-    image: "/images/bungalow-perezoso/IMG_0178.JPG",
+    image: "/images/bungalow-perezoso/IMG_0178_h.JPG",
     gallery: [
       "/images/bungalow-perezoso/IMG_8576.JPG",
       "/images/bungalow-perezoso/IMG_8577.JPG",
