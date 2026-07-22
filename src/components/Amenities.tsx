@@ -2,15 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const items = [
-  { title: "Ubicación Excelente", desc: "En Bijagua, cerca del Volcán Tenorio y Río Celeste.", img: "/images/vistas/IMG_1709.jpg" },
-  { title: "Habitaciones Equipadas", desc: "Cocina completa, TV 32\" y más.", img: "/images/vistas/IMG_1541.jpg" },
-  { title: "Servicio Amable", desc: "Atención personalizada para tu estancia.", img: "/images/vistas/IMG_2332.jpg" },
-  { title: "Pet Friendly", desc: "Tu mascota también es bienvenida.", img: "/images/fauna/IMG_4391.jpg" },
-  { title: "Estacionamiento", desc: "Garaje privado para tu vehículo.", img: "/images/vistas/IMG_4014.jpg" },
-  { title: "Lugar Seguro", desc: "Tranquilidad y privacidad total.", img: "/images/vistas/IMG_8414.jpg" },
-];
+import { useT } from "@/contexts/TranslationContext";
 
 const gallery = [
   "/images/vistas/IMG_1541.jpg",
@@ -42,6 +34,7 @@ const itemVariants = {
 
 export default function Amenities() {
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const { dict } = useT();
 
   return (
     <section id="galeria" className="w-full py-20 md:py-28 px-6 md:px-12">
@@ -53,9 +46,9 @@ export default function Amenities() {
           transition={{ duration: 0.6 }}
           className="mb-10"
         >
-          <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-3">Amenidades</p>
+          <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-3">{dict.amenities.badge}</p>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight">
-            Todo lo que necesitas
+            {dict.amenities.title}
           </h2>
         </motion.div>
 
@@ -66,7 +59,7 @@ export default function Amenities() {
           viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-12"
         >
-          {items.map((item, i) => (
+          {dict.amenities.items.map((item: { title: string; desc: string }, i: number) => (
             <motion.div
               key={item.title}
               variants={itemVariants}

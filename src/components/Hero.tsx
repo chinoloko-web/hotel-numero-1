@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useT } from "@/contexts/TranslationContext";
 
 export default function Hero() {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -12,6 +13,8 @@ export default function Hero() {
   const { scrollY } = useScroll();
   const imageParallax = useTransform(scrollY, [0, 600], [0, 200]);
   const overlayParallax = useTransform(scrollY, [0, 600], [0, -80]);
+
+  const { dict, locale } = useT();
 
   useEffect(() => {
     const title = titleRef.current;
@@ -67,19 +70,18 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-white/50 text-xs tracking-[0.25em] uppercase font-body font-medium mb-6"
         >
-          Bijagua, Costa Rica
+          {dict.hero.location}
         </motion.p>
         <h1
           ref={titleRef}
           className="font-heading text-4xl md:text-6xl lg:text-7xl text-white tracking-[0.04em] leading-none mb-4"
-        >
-          Más que un lodge…<br />Un refugio de paz natural
-        </h1>
+          dangerouslySetInnerHTML={{ __html: dict.hero.title }}
+        />
         <p
           ref={subtitleRef}
           className="font-body text-base md:text-lg text-white/70 tracking-[0.2em] uppercase max-w-lg mx-auto mb-10"
         >
-          More than a lodge… A haven of natural peace
+          {dict.hero.subtitle}
         </p>
         <motion.div
           ref={ctaRef}
@@ -89,18 +91,18 @@ export default function Hero() {
           className="flex flex-col md:flex-row items-center gap-4"
         >
           <a
-            href="https://www.simplebooking.it/ibe2/hotel/11431?lang=ES&cur=USD"
+            href={`https://www.simplebooking.it/ibe2/hotel/11431?lang=${locale === "en" ? "EN" : "ES"}&cur=USD`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-foreground px-10 py-3.5 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-white/90 transition-colors"
           >
-            Reservar Ahora
+            {dict.hero.cta}
           </a>
           <a
-            href="/bungalows"
+            href={`/${locale}/bungalows`}
             className="text-white/80 text-sm tracking-[0.15em] uppercase font-body font-medium hover:text-white transition-colors"
           >
-            Ver Bungalows
+            {dict.hero.ctaBungalows}
           </a>
         </motion.div>
       </div>
@@ -111,7 +113,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
       >
-        <a href="/bungalows" className="text-white/40 text-2xl animate-bounce">↓</a>
+        <a href={`/${locale}/bungalows`} className="text-white/40 text-2xl animate-bounce">↓</a>
       </motion.div>
     </section>
   );

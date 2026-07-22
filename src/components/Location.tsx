@@ -1,15 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const attractions = [
-  { name: "Volcán Tenorio", dist: "5 km" },
-  { name: "Catarata Río Celeste", dist: "5 km" },
-  { name: "Laberinto Katira", dist: "8 km" },
-  { name: "Árbol Gigante", dist: "3 km" },
-  { name: "Reserva Bosque Nuboso", dist: "15 km" },
-  { name: "Lago de Nicaragua", dist: "40 km" },
-];
+import { useT } from "@/contexts/TranslationContext";
 
 const itemVariants = {
   hidden: { opacity: 0, x: -20 },
@@ -21,6 +13,8 @@ const itemVariants = {
 };
 
 export default function Location() {
+  const { dict } = useT();
+
   return (
     <section id="ubicacion" className="w-full py-20 md:py-28 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
@@ -31,8 +25,8 @@ export default function Location() {
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-3">Ubicación</p>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight">En el corazón de Bijagua</h2>
+          <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-3">{dict.location.badge}</p>
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight">{dict.location.title}</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -57,10 +51,10 @@ export default function Location() {
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           >
             <p className="text-sm font-body text-foreground/60 mb-6 leading-relaxed">
-              Del colono de Bijagua, al sureste 3 km, Provincia de Alajuela, Bijagua de Upala, Costa Rica.
+              {dict.location.address}
             </p>
             <div className="grid grid-cols-2 gap-2 mb-6">
-              {attractions.map((a, i) => (
+              {dict.location.attractions.map((a: { name: string; dist: string }, i: number) => (
                 <motion.div
                   key={a.name}
                   custom={i}
@@ -83,7 +77,7 @@ export default function Location() {
               rel="noopener noreferrer"
               className="inline-block bg-accent text-background px-8 py-3 text-sm tracking-[0.15em] uppercase font-body font-medium hover:bg-accent-light transition-colors"
             >
-              Cómo llegar
+              {dict.location.directions}
             </motion.a>
           </motion.div>
         </div>

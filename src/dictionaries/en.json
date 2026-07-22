@@ -1,0 +1,125 @@
+{
+  "nav": {
+    "bungalows": "Bungalows",
+    "galeria": "Gallery",
+    "ubicacion": "Location",
+    "reservar": "Book Now"
+  },
+  "hero": {
+    "location": "Bijagua, Costa Rica",
+    "title": "More than a lodge…<br />A haven of natural peace",
+    "subtitle": "Más que un lodge… Un refugio de paz natural",
+    "cta": "Book Now",
+    "ctaBungalows": "View Bungalows"
+  },
+  "intro": {
+    "badge": "Welcome",
+    "title": "More than a lodge… A haven of natural peace",
+    "text": "Nestled in Bijagua, Costa Rica, Paraíso Celeste invites you to connect with nature. Minutes from Volcán Tenorio and Río Celeste Waterfall, every stay is a unique experience.",
+    "cta": "View our bungalows"
+  },
+  "rooms": {
+    "sectionBadge": "Bungalows",
+    "sectionTitle": "Your refuge in paradise",
+    "from": "From",
+    "perNight": "/ night",
+    "seeMore": "See more",
+    "close": "Close",
+    "amenities": "Amenities",
+    "services": "Services",
+    "capacity": "Capacity",
+    "reserve": "Book",
+    "bungalow-colibri": {
+      "name": "Bungalow Hummingbird",
+      "desc": "An intimate refuge surrounded by nature.",
+      "long": "Immerse yourself in the tranquility of this private bungalow. Surrounded by lush vegetation, with every detail carefully considered to make your stay unforgettable.",
+      "amenities": ["Queen bed", "32\" TV", "Air conditioning", "Equipped kitchen"],
+      "services": ["Breakfast included", "Personal concierge", "Room service"]
+    },
+    "bungalow-tucan": {
+      "name": "Bungalow Toucan",
+      "desc": "Surrounded by jungle, with amazing views.",
+      "long": "A space designed to connect with nature. Spacious, bright, and with all the details that make your stay a unique experience.",
+      "amenities": ["Queen bed", "32\" TV", "Ceiling fan", "Equipped kitchen"],
+      "services": ["Personal concierge", "Breakfast included", "Sunrise yoga"]
+    },
+    "bungalow-perezoso": {
+      "name": "Bungalow Sloth",
+      "desc": "Your personal sanctuary in the jungle.",
+      "long": "Surrounded by lush vegetation, this bungalow offers the perfect combination of comfort and nature. Ideal for disconnecting from the world.",
+      "amenities": ["Queen bed", "32\" TV", "Air conditioning", "Equipped kitchen"],
+      "services": ["Breakfast included", "24h concierge", "Private yoga"]
+    },
+    "bungalow-tapir": {
+      "name": "Bungalow Tapir",
+      "desc": "The most exclusive, with a private pool.",
+      "long": "An oasis of privacy and luxury. With a private pool, panoramic terrace and the best sunsets at the resort. The ultimate experience.",
+      "amenities": ["Queen bed", "32\" TV", "Ceiling fan", "Equipped kitchen"],
+      "services": ["Breakfast included", "Personal concierge", "Exclusive excursions"]
+    }
+  },
+  "amenities": {
+    "badge": "Amenities",
+    "title": "Everything you need",
+    "items": [
+      { "title": "Excellent Location", "desc": "In Bijagua, near Volcán Tenorio and Río Celeste." },
+      { "title": "Equipped Rooms", "desc": "Full kitchen, 32\" TV and more." },
+      { "title": "Friendly Service", "desc": "Personalized attention for your stay." },
+      { "title": "Pet Friendly", "desc": "Your pet is welcome too." },
+      { "title": "Parking", "desc": "Private garage for your vehicle." },
+      { "title": "Safe Place", "desc": "Total peace of mind and privacy." }
+    ]
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title": "What our guests say"
+  },
+  "location": {
+    "badge": "Location",
+    "title": "In the heart of Bijagua",
+    "address": "Del colono de Bijagua, 3 km southeast, Alajuela Province, Bijagua de Upala, Costa Rica.",
+    "attractions": [
+      { "name": "Tenorio Volcano", "dist": "5 km" },
+      { "name": "Río Celeste Waterfall", "dist": "5 km" },
+      { "name": "Katira Maze", "dist": "8 km" },
+      { "name": "Giant Tree", "dist": "3 km" },
+      { "name": "Cloud Forest Reserve", "dist": "15 km" },
+      { "name": "Lake Nicaragua", "dist": "40 km" }
+    ],
+    "directions": "Get directions"
+  },
+  "bungalowsPage": {
+    "badge": "Paraíso Celeste",
+    "titleLine1": "Our",
+    "titleLine2": "Bungalows",
+    "subtitle": "Four unique refuges designed to connect with nature without sacrificing comfort. Each bungalow has its own personality.",
+    "discover": "Discover",
+    "amenitiesBadge": "Amenities",
+    "amenitiesTitle": "Everything you need",
+    "amenitiesList": [
+      { "icon": "🛏️", "label": "Queen bed" },
+      { "icon": "📺", "label": "32\" TV" },
+      { "icon": "🍳", "label": "Equipped kitchen" },
+      { "icon": "🚿", "label": "Hot water" },
+      { "icon": "🅿️", "label": "Parking" },
+      { "icon": "🌿", "label": "Mountain view" },
+      { "icon": "🛜", "label": "Free WiFi" },
+      { "icon": "🧹", "label": "Daily cleaning" }
+    ],
+    "bookingBadge": "Booking",
+    "bookingTitle": "Ready to live the experience?",
+    "bookingText": "Select your dates and book your bungalow.",
+    "simplebookingLang": "EN"
+  },
+  "footer": {
+    "tagline": "Where time moves slower. A luxury refuge in Bijagua, Costa Rica.",
+    "contact": "Contact",
+    "social": "Follow us",
+    "newsletter": "Newsletter",
+    "newsletterPlaceholder": "your@email.com",
+    "newsletterCta": "Subscribe",
+    "copyright": "Paraíso Celeste.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  }
+}

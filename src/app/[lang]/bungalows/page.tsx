@@ -2,23 +2,13 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useT } from "@/contexts/TranslationContext";
 import Rooms from "@/components/Rooms";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import SmoothScroll from "@/components/SmoothScroll";
-
-const amenitiesList = [
-  { icon: "🛏️", label: "Cama matrimonial" },
-  { icon: "📺", label: "TV 32 pulgadas" },
-  { icon: "🍳", label: "Cocina equipada" },
-  { icon: "🚿", label: "Agua caliente" },
-  { icon: "🅿️", label: "Estacionamiento" },
-  { icon: "🌿", label: "Vista a la montaña" },
-  { icon: "🛜", label: "WiFi gratuito" },
-  { icon: "🧹", label: "Limpieza diaria" },
-];
 
 const containerVariants = {
   hidden: {},
@@ -41,6 +31,9 @@ function PageContent() {
   const { scrollY } = useScroll();
   const imageParallax = useTransform(scrollY, [0, 600], [0, 180]);
   const overlayParallax = useTransform(scrollY, [0, 600], [0, -70]);
+
+  const { dict, locale } = useT();
+  const bp = dict.bungalowsPage;
 
   return (
     <main>
@@ -65,7 +58,7 @@ function PageContent() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-white/50 text-xs tracking-[0.25em] uppercase font-body font-medium mb-4"
           >
-            Paraíso Celeste
+            {bp.badge}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -73,9 +66,9 @@ function PageContent() {
             transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const }}
             className="font-heading text-5xl md:text-7xl lg:text-8xl text-white tracking-[0.03em] leading-none mb-6"
           >
-            Nuestros
+            {bp.titleLine1}
             <br />
-            <span className="text-[#3D5F4F]">Bungalows</span>
+            <span className="text-[#3D5F4F]">{bp.titleLine2}</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -83,8 +76,7 @@ function PageContent() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="font-body text-base md:text-lg text-white/60 max-w-xl leading-relaxed"
           >
-            Cuatro refugios únicos diseñados para conectar con la naturaleza
-            sin renunciar al confort. Cada bungalow tiene su propia personalidad.
+            {bp.subtitle}
           </motion.p>
         </div>
 
@@ -95,7 +87,7 @@ function PageContent() {
           className="absolute bottom-10 left-0 right-0 z-10 flex justify-center"
         >
           <a href="#bungalows" className="flex flex-col items-center gap-2 text-white/40 hover:text-white/70 transition-colors">
-            <span className="text-[10px] tracking-[0.2em] uppercase font-body">Descubrir</span>
+            <span className="text-[10px] tracking-[0.2em] uppercase font-body">{bp.discover}</span>
             <span className="text-2xl animate-bounce">↓</span>
           </a>
         </motion.div>
@@ -119,9 +111,9 @@ function PageContent() {
             transition={{ duration: 0.6 }}
             className="mb-12 text-center"
           >
-            <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-3">Comodidades</p>
+            <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-3">{bp.amenitiesBadge}</p>
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight">
-              Todo lo que necesitas
+              {bp.amenitiesTitle}
             </h2>
           </motion.div>
           <motion.div
@@ -131,7 +123,7 @@ function PageContent() {
             viewport={{ once: true }}
             className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
           >
-            {amenitiesList.map((a) => (
+            {bp.amenitiesList.map((a: { icon: string; label: string }) => (
               <motion.div
                 key={a.label}
                 variants={itemVariants}
@@ -164,12 +156,12 @@ function PageContent() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 text-center">
-            <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-3">Reservas</p>
+            <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-3">{bp.bookingBadge}</p>
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-4">
-              ¿Listo para vivir la experiencia?
+              {bp.bookingTitle}
             </h2>
             <p className="font-body text-foreground/60 max-w-md mx-auto">
-              Selecciona tus fechas y reserva tu bungalow.
+              {bp.bookingText}
             </p>
           </div>
           <motion.div
@@ -180,7 +172,7 @@ function PageContent() {
             className="w-full h-[600px] md:h-[700px] overflow-hidden border border-secondary"
           >
             <iframe
-              src="https://www.simplebooking.it/ibe2/hotel/11431?lang=ES&cur=USD"
+              src={`https://www.simplebooking.it/ibe2/hotel/11431?lang=${bp.simplebookingLang}&cur=USD`}
               width="100%"
               height="100%"
               style={{ border: 0 }}

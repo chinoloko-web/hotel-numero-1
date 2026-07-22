@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import { useT } from "@/contexts/TranslationContext";
 
 const data = [
   { name: "Joudy", img: "", text: "Me encantó la experiencia en este hospedaje, la vista de la habitación y la paz que hay. Está totalmente equipada entonces pudimos preparar varias comidas. Mi parte favorita es que está muy cerca del parque volcán Tenorio aprox 10mins y del laberinto Katira. Recomiendo al 100% este hospedaje para escaparse con la familia, amigos o pareja.", country: "Costa Rica" },
@@ -11,6 +12,7 @@ const data = [
 export default function Testimonials() {
   const trackRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<ReturnType<typeof setInterval>>(undefined);
+  const { dict } = useT();
 
   useEffect(() => {
     const track = trackRef.current;
@@ -31,8 +33,8 @@ export default function Testimonials() {
   return (
     <section className="w-full py-32 overflow-hidden">
       <div className="px-6 md:px-12 mb-16 max-w-7xl mx-auto">
-        <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-4">Testimonios</p>
-        <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight">Lo que dicen nuestros huéspedes</h2>
+        <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-body font-medium mb-4">{dict.testimonials.badge}</p>
+        <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight">{dict.testimonials.title}</h2>
       </div>
       <div className="relative overflow-hidden">
         <div ref={trackRef} className="flex gap-8 px-6 md:px-12" style={{ width: "max-content", willChange: "transform" }}>
